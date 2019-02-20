@@ -9,6 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		AbstractApplicationContext ctx = (AbstractApplicationContext) SpringApplication.run(Main.class, args);
+		ctx.registerShutdownHook();
 	}
 
 }
