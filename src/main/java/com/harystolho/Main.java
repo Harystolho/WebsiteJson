@@ -7,6 +7,10 @@ import org.springframework.context.support.AbstractApplicationContext;
 @SpringBootApplication
 public class Main {
 
+	static {
+		System.setProperty("user.timezone", "UTC");
+	}
+	
 	public static void main(String[] args) {
 		AbstractApplicationContext ctx = (AbstractApplicationContext) SpringApplication.run(Main.class, args);
 		ctx.registerShutdownHook();
