@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+}
+
+.header{
+    height: 60px;
+    background-color: #0095da;
+    box-shadow: 0 0 9px -1px #0009;
+}
