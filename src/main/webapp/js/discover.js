@@ -8,11 +8,15 @@ let Discover = (function ($) {
 
     /**
      * Displays the modules from the corresponding category
-     * @param serviceID one from CATEGORY_IDS
+     * @param categoryID one from CATEGORY_IDS
      */
-    functions.displayCategory = function(serviceID){
+    functions.displayCategory = function(categoryID){
 
     };
+
+    function getModulesFromCategory(categoryID){
+
+    }
 
     return functions;
 })(jQuery);
