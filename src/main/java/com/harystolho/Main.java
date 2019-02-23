@@ -9,6 +9,7 @@ public class Main {
 
 	static {
 		System.setProperty("user.timezone", "UTC");
+		System.out.println("USE TDD");
 	}
 	
 	public static void main(String[] args) {
