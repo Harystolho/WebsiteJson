@@ -14,8 +14,8 @@
 <div th:replace="components/header :: header"></div>
 <div id="root">
     <div id="category-container">
-        <div>ProductHunt</div>
-        <div>Reddit</div>
+        <div onclick="Discover.displayCategory(CATEGORY_IDS.PRODUCT_HUNT)">ProductHunt</div>
+        <div onclick="Discover.displayCategory(CATEGORY_IDS.REDDIT)">Reddit</div>
     </div>
     <div id="category-display"></div>
 </div>
