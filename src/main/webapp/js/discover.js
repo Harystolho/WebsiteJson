@@ -1,7 +1,16 @@
+let SERVICE_IDS = {
+    PRODUCT_HUNT: "PRODUCT_HUNT",
+    REDDIT: "REDDIT"
+};
+
 let Discover = (function ($) {
     let functions = {};
 
-    functions.displayModules = function(){
+    /**
+     *
+     * @param serviceID
+     */
+    functions.displayModule = function(serviceID){
 
     };
 
