@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.harystolho.API_Response;
+import com.harystolho.data.Module;
 import com.harystolho.services.DiscoverService;
 import com.harystolho.services.ServiceError;
 import com.harystolho.utils.Pair;
@@ -35,18 +36,22 @@ public class DiscoverController {
 	@ResponseBody
 	@GetMapping("/api/category")
 	public API_Response getModulesFromCategory(@RequestParam(name = "category") String category) {
-		Pair<ServiceError, List<String>> reponse = discoverService.getModulesFromCategory(category);
+		Pair<ServiceError, List<Module>> reponse = discoverService.getModulesFromCategory(category);
+
+		API_Response apiResponse = new API_Response();
 
 		switch (reponse.getFirst()) {
 		case INVALID_CATEGORY_ID:
-			API_Response api_Response = new API_Response();
-			api_Response.setError("INVALID_CATEGORY");
-			return api_Response;
+			apiResponse.setError("INVALID_CATEGORY");
+			return apiResponse;
 		default:
 			break;
 		}
 
-		return null;
+		apiResponse.setError(API_Response.ERROR_NONE);
+		apiResponse.setData(reponse.getSecond());
+
+		return apiResponse;
 	}
 
 }

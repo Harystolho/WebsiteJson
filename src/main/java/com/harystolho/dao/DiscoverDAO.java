@@ -1,8 +1,17 @@
 package com.harystolho.dao;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class DiscoverDAO {
+import com.harystolho.data.Module;
+
+public interface DiscoverDAO {
+
+	public List<Module> getModules(int category_id);
+
+	/**
+	 * @param category
+	 * @return the database id for the category
+	 */
+	public int getCategoryId(String category);
 
 }
