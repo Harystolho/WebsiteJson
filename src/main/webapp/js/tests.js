@@ -5,7 +5,7 @@ QUnit.module("Discover Page", () => {
         $.get("/api/category", {category: "SOME_INVALID_CATEGORY"}).done((data) => {
             done();
 
-            assert.equals(JSON.parse(data).error, "INVALID_CATEGORY");
+            assert.equal(data.error, "INVALID_CATEGORY");
         }).fail(() => {
             done();
             assert.ok(false, "Can't make GET request");
@@ -17,7 +17,7 @@ QUnit.module("Discover Page", () => {
         $.get("/api/category", {category: CATEGORY_IDS.REDDIT}).done((data) => {
             done();
 
-            assert.equals(JSON.parse(data).error, "NONE");
+            assert.equal(data.error, "NONE");
         }).fail(() => {
             done();
             assert.ok(false, "Can't make GET request");
