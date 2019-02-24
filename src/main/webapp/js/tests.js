@@ -1,5 +1,5 @@
 QUnit.module("Discover Page", () => {
-    QUnit.test("Requesting modules from an invalid category returns an empty json", (assert) => {
+    QUnit.test("Requesting modules from an invalid category return empty json", (assert) => {
         let done = assert.async();
 
         $.get("/api/category", {category: "SOME_INVALID_CATEGORY"}).done((data) => {

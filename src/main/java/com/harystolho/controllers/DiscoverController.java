@@ -1,5 +1,7 @@
 package com.harystolho.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.harystolho.services.DiscoverService;
+import com.harystolho.services.ServiceError;
+import com.harystolho.utils.Pair;
 
 @Controller
 public class DiscoverController {
@@ -29,8 +33,18 @@ public class DiscoverController {
 	
 	@ResponseBody
 	@GetMapping("/api/category")
-	public String getCategories(@RequestParam(name = "category") String category) {
-		System.out.println(category);
+	public String getModulesFromCategory(@RequestParam(name = "category") String category) {
+		Pair<ServiceError, List<String>> reponse = discoverService.getModulesFromCategory(category);
+		
+		switch (reponse.getFirst()) {
+		case INVALID_CATEGORY_ID:
+			
+			break;
+
+		default:
+			break;
+		}
+		
 		return "";
 	}
 	
