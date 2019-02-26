@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.harystolho.API_Response;
 import com.harystolho.data.Module;
-import com.harystolho.services.DiscoverService;
+import com.harystolho.services.CategoryService;
 import com.harystolho.services.ServiceError;
 import com.harystolho.utils.Pair;
 
 @Controller
 public class DiscoverController {
 
-	private DiscoverService discoverService;
+	private CategoryService categoryService;
 
 	@Autowired
-	public DiscoverController(DiscoverService discoverService) {
-		this.discoverService = discoverService;
+	public DiscoverController(CategoryService categoryService) {
+		this.categoryService = categoryService;
 
 	}
 
@@ -36,7 +36,7 @@ public class DiscoverController {
 	@ResponseBody
 	@GetMapping("/api/category")
 	public API_Response getModulesFromCategory(@RequestParam(name = "category") String category) {
-		Pair<ServiceError, List<Module>> reponse = discoverService.getModulesFromCategory(category);
+		Pair<ServiceError, List<Module>> reponse = categoryService.getModulesFromCategory(category);
 
 		API_Response apiResponse = new API_Response();
 

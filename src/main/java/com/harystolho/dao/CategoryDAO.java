@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.harystolho.data.Module;
 
-public interface DiscoverDAO {
+public interface CategoryDAO {
 
 	public List<Module> getModules(int category_id);
 

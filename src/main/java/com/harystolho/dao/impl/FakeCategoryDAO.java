@@ -5,15 +5,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.harystolho.dao.DiscoverDAO;
+import com.harystolho.dao.CategoryDAO;
 import com.harystolho.data.Module;
 
 @Service
-public class FakeDiscoverDAO implements DiscoverDAO {
+public class FakeCategoryDAO implements CategoryDAO {
 
 	List<Module> modules;
 
-	public FakeDiscoverDAO() {
+	public FakeCategoryDAO() {
 		modules = new ArrayList<>();
 
 		Module reddit_user_posts = new Module();
