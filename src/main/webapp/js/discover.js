@@ -29,6 +29,10 @@ let Discover = (function ($) {
         });
     }
 
+    functions.openModuleEndpoint = function(moduleId){
+        window.open(`/module/${moduleId}`);
+    };
+
     /**
      * Creates HTMLElement from Module object
      * @param mod
@@ -37,7 +41,8 @@ let Discover = (function ($) {
     function createModuleElement(mod) {
         let el = `
         <div class="category-module">
-            <span>${mod.name}</span><br>
+            <span onclick="Discover.openModuleEndpoint(${mod.id})">${mod.name}</span>
+            <br>
             <span class="module-description">${mod.description}</span>                   
         </div>
         `;

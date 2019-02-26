@@ -19,6 +19,7 @@
     position: fixed;
     height: 100vh;
     color: white;
+    font-size: larger;
 }
 
 #category-display {
