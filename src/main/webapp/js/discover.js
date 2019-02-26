@@ -1,6 +1,7 @@
 let CATEGORY_IDS = {
     PRODUCT_HUNT: "PRODUCT_HUNT",
-    REDDIT: "REDDIT"
+    REDDIT: "REDDIT",
+    TWITTER: "TWITTER"
 };
 
 let Discover = (function ($) {
@@ -35,8 +36,9 @@ let Discover = (function ($) {
      */
     function createModuleElement(mod) {
         let el = `
-        <div>
-            <div>${mod.name}</div>                   
+        <div class="category-module">
+            <span>${mod.name}</span><br>
+            <span class="module-description">${mod.description}</span>                   
         </div>
         `;
 

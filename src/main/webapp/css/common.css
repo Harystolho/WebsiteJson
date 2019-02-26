@@ -28,3 +28,17 @@
     position: fixed;
     padding: 30px;
 }
+
+.category-module{
+    background-color: #e4e4e4;
+    padding: 5px;
+    border-radius: 4px;
+    width: 340px;
+    margin-bottom: 9px;
+}
+
+.module-description{
+    font-size: 14px;
+    padding-left: 4px;
+    color: #878787;
+}

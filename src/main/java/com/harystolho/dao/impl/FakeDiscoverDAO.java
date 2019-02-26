@@ -37,6 +37,13 @@ public class FakeDiscoverDAO implements DiscoverDAO {
 		productHunt_comments.setCategory_id(2);
 		modules.add(productHunt_comments);
 
+		Module twitter_stats = new Module();
+		twitter_stats.setName("Twitter Profile Stats");
+		twitter_stats.setDescription("Get information about a twitter profile.");
+		twitter_stats.setId(4);
+		twitter_stats.setCategory_id(3);
+		modules.add(twitter_stats);
+		
 	}
 
 	public List<Module> getModules(int category_id) {
@@ -57,9 +64,12 @@ public class FakeDiscoverDAO implements DiscoverDAO {
 			return 1;
 		case "PRODUCT_HUNT":
 			return 2;
+		case "TWITTER":
+			return 3;
 		default:
 			return -1;
 		}
 	}
 
 }
+

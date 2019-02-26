@@ -3,11 +3,9 @@ package com.harystolho.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.harystolho.dao.DiscoverDAO;
-import com.harystolho.dao.impl.FakeDiscoverDAO;
 import com.harystolho.data.Module;
 import com.harystolho.utils.Pair;
 
