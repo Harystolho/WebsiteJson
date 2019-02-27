@@ -53,11 +53,12 @@ let Discover = (function ($) {
     }
 
     functions.displayModuleDocumentation = function (modId) {
-        DiscoverUI.displayCategoryDisplay(false);
-
         requestModuleInformation(modId, (data) => {
             $("#module-info-name").text(data.name);
             $("#module-info-description").text(data.description);
+            $("#module-info-id").text(`${window.location.host}/module/${data.id}`);
+
+            DiscoverUI.displayCategoryDisplay(false);
         });
     };
 
@@ -68,7 +69,7 @@ let Discover = (function ($) {
      */
     function requestModuleInformation(modId, cb) {
         $.get("/api/category/module", {moduleId: modId}).done((data) => {
-            if(data.error === "NONE"){
+            if (data.error === "NONE") {
                 cb(data.data);
             } else {
                 alert("Invalid request to /api/category/module");
@@ -89,8 +90,8 @@ let DiscoverUI = (function ($) {
     /**
      * @param display if {true} shows the #category-display div, if {false} shows the #category-module-info div
      */
-    functions.displayCategoryDisplay = function(display){
-        if(display){
+    functions.displayCategoryDisplay = function (display) {
+        if (display) {
             $("#category-display").show();
             $("#category-module-info").hide();
         } else {

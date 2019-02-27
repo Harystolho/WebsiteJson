@@ -31,6 +31,15 @@
     padding: 30px;
 }
 
+#module-id-container{
+    margin: 15px;
+    background-color: #0095da;
+    border-radius: 5px;
+    padding: 15px;
+    width: max-content;
+    color: white;
+}
+
 .category-module {
     background-color: #e4e4e4;
     padding: 5px;
