@@ -10,11 +10,9 @@ public class TwitterProfileInfo implements ModuleHandler {
 
 	@Override
 	public ObjectNode execute(Map<String, String> map) {
-		if(!areParametersValid(map))
+		if (!areParametersValid(map))
 			return new InvalidParameters();
-		
-		
-		
+
 		return null;
 	}
 

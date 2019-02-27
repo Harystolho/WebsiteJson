@@ -41,7 +41,7 @@ let Discover = (function ($) {
     function createModuleElement(mod) {
         let el = `
         <div class="category-module">
-            <span onclick="Discover.openModuleEndpoint(${mod.id})">${mod.name}</span>
+            <span onclick="makePostForElement(${mod.id})">${mod.name}</span>
             <br>
             <span class="module-description">${mod.description}</span>                   
         </div>
@@ -53,8 +53,8 @@ let Discover = (function ($) {
     return functions;
 })(jQuery);
 
-function postshit() {
-    $.post("/module/4", {a: 2, b: 4}, (data)=>{
-       console.log(data);
+function makePostForElement(id){
+    $.post(`/module/${id}`, {a: 2, b: 4}, (data)=>{
+        $("#category-display").append("<span>" + JSON.stringify(data) + "</span><br>");
     });
 }
