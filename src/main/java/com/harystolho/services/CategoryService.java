@@ -38,20 +38,20 @@ public class CategoryService {
 	/**
 	 * 
 	 * @param moduleId
-	 * @return  the module path relative to {@link #BASE_MODULES_PACKAGE}
+	 * @return the module path relative to {@link #BASE_MODULES_PACKAGE}
 	 */
 	private String getModuleLocation(int moduleId) {
-		return "twitter.TwitterProfileInfo";
+		return categoryDao.getModulePath(moduleId);
 	}
 
 	public ModuleHandler getModuleHandler(int moduleId) {
 		try {
 			Class<?> cls = Class.forName(BASE_MODULES_PACKAGE + "." + getModuleLocation(moduleId));
 
-			// If class is instance of ModuleHandler
+			// If the class is instance of ModuleHandler
 			if (ModuleHandler.class.isAssignableFrom(cls)) {
-				ModuleHandler handler = (ModuleHandler) cls.getDeclaredConstructor().newInstance(); // TODO add cache to
-																									// class instances
+				// TODO add cache to class instances
+				ModuleHandler handler = (ModuleHandler) cls.getDeclaredConstructor().newInstance();
 				return handler;
 			}
 		} catch (Exception e) {

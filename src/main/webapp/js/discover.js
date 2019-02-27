@@ -54,7 +54,7 @@ let Discover = (function ($) {
 })(jQuery);
 
 function postshit() {
-    $.post("/module/5", {a: 2, b: 4}, (data)=>{
+    $.post("/module/4", {a: 2, b: 4}, (data)=>{
        console.log(data);
     });
 }

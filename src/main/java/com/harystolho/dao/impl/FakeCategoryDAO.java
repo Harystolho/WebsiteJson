@@ -43,7 +43,7 @@ public class FakeCategoryDAO implements CategoryDAO {
 		twitter_stats.setId(4);
 		twitter_stats.setCategory_id(3);
 		modules.add(twitter_stats);
-		
+
 	}
 
 	public List<Module> getModules(int category_id) {
@@ -71,5 +71,20 @@ public class FakeCategoryDAO implements CategoryDAO {
 		}
 	}
 
-}
+	@Override
+	public String getModulePath(int moduleId) {
+		switch (moduleId) {
+		case 1:
+			return "reddit.";
+		case 2:
+			return "producthunt.";
+		case 3:
+			return "producthunt.";
+		case 4:
+			return "twitter.TwitterProfileInfo";
+		default:
+			return "NullModuleHandler";
+		}
+	}
 
+}
