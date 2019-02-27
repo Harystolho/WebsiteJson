@@ -76,7 +76,16 @@ let Discover = (function ($) {
             }
         });
     }
+    
+    functions.selectModuleURL = function(){
+      let sel = window.getSelection();
 
+      let range = document.createRange();
+      range.selectNodeContents($("#module-info-id")[0]);
+
+      sel.removeAllRanges();
+      sel.addRange(range);
+    };
 
     return functions;
 })(jQuery);

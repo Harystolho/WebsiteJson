@@ -40,6 +40,10 @@
     color: white;
 }
 
+#module-info-id:hover {
+    cursor: pointer;
+}
+
 .category-module {
     background-color: #e4e4e4;
     padding: 5px;
