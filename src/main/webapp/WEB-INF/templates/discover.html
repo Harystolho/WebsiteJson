@@ -17,8 +17,17 @@
         <div onclick="Discover.displayCategory(CATEGORY_IDS.PRODUCT_HUNT)">ProductHunt</div>
         <div onclick="Discover.displayCategory(CATEGORY_IDS.REDDIT)">Reddit</div>
         <div onclick="Discover.displayCategory(CATEGORY_IDS.TWITTER)">Twitter</div>
+        <button onclick="temp_switchContainer()">switch</button>
     </div>
-    <div id="category-display"></div>
+    <div id="right-container">
+        <div id="category-display"></div>
+        <div id="category-module-info">
+            <div>
+                <h2 id="module-info-name"></h2>
+                <span id="module-info-description"></span>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -54,4 +54,25 @@ public class DiscoverController {
 		return apiResponse;
 	}
 
+	
+	@ResponseBody
+	@GetMapping("/api/category/module")
+	public API_Response getModuleInformation(@RequestParam(name = "moduleId") int moduleId) {
+		Pair<ServiceError, Module> reponse = categoryService.getModuleInformation(moduleId);
+
+		API_Response apiResponse = new API_Response();
+
+		switch (reponse.getFirst()) {
+		case INVALID_MODULE_ID:
+			apiResponse.setError("INVALID_MODULE_ID");
+			return apiResponse;
+		default:
+			break;
+		}
+
+		apiResponse.setError(API_Response.ERROR_NONE);
+		apiResponse.setData(reponse.getSecond());
+
+		return apiResponse;
+	}
 }

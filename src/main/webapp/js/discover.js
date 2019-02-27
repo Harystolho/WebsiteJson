@@ -20,6 +20,8 @@ let Discover = (function ($) {
                 let moduleElement = createModuleElement(mod);
                 container.append(moduleElement);
             });
+
+            DiscoverUI.displayCategoryDisplay(true);
         });
     };
 
@@ -29,7 +31,7 @@ let Discover = (function ($) {
         });
     }
 
-    functions.openModuleEndpoint = function(moduleId){
+    functions.openModuleEndpoint = function (moduleId) {
         window.open(`/module/${moduleId}`);
     };
 
@@ -40,8 +42,8 @@ let Discover = (function ($) {
      */
     function createModuleElement(mod) {
         let el = `
-        <div class="category-module">
-            <span onclick="makePostForElement(${mod.id})">${mod.name}</span>
+        <div class="category-module" onclick="Discover.displayModuleDocumentation(${mod.id})">
+            <span>${mod.name}</span>
             <br>
             <span class="module-description">${mod.description}</span>                   
         </div>
@@ -50,11 +52,72 @@ let Discover = (function ($) {
         return $(el);
     }
 
+    functions.displayModuleDocumentation = function (modId) {
+        DiscoverUI.displayCategoryDisplay(false);
+
+        requestModuleInformation(modId, (data) => {
+            $("#module-info-name").text(data.name);
+            $("#module-info-description").text(data.description);
+        });
+    };
+
+    /**
+     * Returns information about the module such as the module name, the descrption, the url and more information about it.
+     * @param modId
+     * @param cb
+     */
+    function requestModuleInformation(modId, cb) {
+        $.get("/api/category/module", {moduleId: modId}).done((data) => {
+            if(data.error === "NONE"){
+                cb(data.data);
+            } else {
+                alert("Invalid request to /api/category/module");
+            }
+        });
+    }
+
+
     return functions;
 })(jQuery);
 
-function makePostForElement(id){
-    $.post(`/module/${id}`, {a: 2, b: 4}, (data)=>{
+/**
+ * This is like an util class for the discover page, it has some functions used to control the UI
+ */
+let DiscoverUI = (function ($) {
+    let functions = {};
+
+    /**
+     * @param display if {true} shows the #category-display div, if {false} shows the #category-module-info div
+     */
+    functions.displayCategoryDisplay = function(display){
+        if(display){
+            $("#category-display").show();
+            $("#category-module-info").hide();
+        } else {
+            $("#category-display").hide();
+            $("#category-module-info").show();
+        }
+    }
+
+    return functions;
+})(jQuery);
+
+function temp_makePostForElement(id) {
+    $.post(`/module/${id}`, {a: 2, b: 4}, (data) => {
         $("#category-display").append("<span>" + JSON.stringify(data) + "</span><br>");
     });
+}
+
+function temp_switchContainer() {
+    let d = $("#category-display");
+    let m = $("#category-module-info");
+
+    if (d.is(":visible")) {
+        d.hide();
+        m.show();
+    } else {
+        d.show();
+        m.hide();
+    }
+
 }

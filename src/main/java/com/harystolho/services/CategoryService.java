@@ -32,7 +32,16 @@ public class CategoryService {
 		} else {
 			return Pair.of(ServiceError.SUCESS, modules);
 		}
+	}
 
+	public Pair<ServiceError, Module> getModuleInformation(int moduleId) {
+		Module module = categoryDao.getModule(moduleId);
+
+		if (module == null) {
+			return Pair.of(ServiceError.INVALID_MODULE_ID, null);
+		} else {
+			return Pair.of(ServiceError.SUCESS, module);
+		}
 	}
 
 	/**

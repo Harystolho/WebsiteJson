@@ -7,7 +7,17 @@ import com.harystolho.services.CategoryService;
 
 public interface CategoryDAO {
 
+	/**
+	 * @param category_id
+	 * @return a {@link List} of modules that belong to the specified category_id
+	 */
 	public List<Module> getModules(int category_id);
+
+	/**
+	 * @param moduleId
+	 * @return the {@link Module} that matches the moduleId
+	 */
+	public Module getModule(int moduleId);
 
 	/**
 	 * @param category

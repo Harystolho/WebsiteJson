@@ -58,6 +58,15 @@ public class FakeCategoryDAO implements CategoryDAO {
 	}
 
 	@Override
+	public Module getModule(int moduleId) {
+		for (Module module : modules) {
+			if (module.getId() == moduleId)
+				return module;
+		}
+		return null;
+	}
+
+	@Override
 	public int getCategoryId(String category) {
 		switch (category) {
 		case "REDDIT":
