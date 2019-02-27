@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.harystolho.dao.CategoryDAO;
 import com.harystolho.data.Module;
+import com.harystolho.modules.ModuleHandler;
 import com.harystolho.utils.Pair;
 
 @Service
@@ -30,6 +31,10 @@ public class CategoryService {
 			return Pair.of(ServiceError.SUCESS, modules);
 		}
 
+	}
+	
+	public ModuleHandler getModuleHandler(int moduleId) {
+		return null;
 	}
 
 }
