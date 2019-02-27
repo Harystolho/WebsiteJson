@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 import com.harystolho.dao.CategoryDAO;
 import com.harystolho.data.Module;
 import com.harystolho.modules.ModuleHandler;
-import com.harystolho.modules.impl.twitter.TwitterProfileInfo;
+import com.harystolho.modules.impl.NullModuleHandler;
 import com.harystolho.utils.Pair;
 
 @Service
 public class CategoryService {
+
+	private static final String BASE_MODULES_PACKAGE = "com.harystolho.modules.impl";
 
 	private CategoryDAO categoryDao;
 
@@ -33,8 +35,31 @@ public class CategoryService {
 
 	}
 
+	/**
+	 * 
+	 * @param moduleId
+	 * @return  the module path relative to {@link #BASE_MODULES_PACKAGE}
+	 */
+	private String getModuleLocation(int moduleId) {
+		return "twitter.TwitterProfileInfo";
+	}
+
 	public ModuleHandler getModuleHandler(int moduleId) {
-		return new TwitterProfileInfo();
+		try {
+			Class<?> cls = Class.forName(BASE_MODULES_PACKAGE + "." + getModuleLocation(moduleId));
+
+			// If class is instance of ModuleHandler
+			if (ModuleHandler.class.isAssignableFrom(cls)) {
+				ModuleHandler handler = (ModuleHandler) cls.getDeclaredConstructor().newInstance(); // TODO add cache to
+																									// class instances
+				return handler;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			// return the nullModuleHandler
+		}
+
+		return new NullModuleHandler();
 	}
 
 }
