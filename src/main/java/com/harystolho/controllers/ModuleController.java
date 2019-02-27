@@ -13,22 +13,22 @@ import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.harystolho.modules.ModuleHandler;
 import com.harystolho.services.CategoryService;
+import com.harystolho.services.ModuleHandlerService;
 
 @Controller
 public class ModuleController {
 
-	private CategoryService categoryService;
+	private ModuleHandlerService moduleHandlerService;
 
 	@Autowired
-	public ModuleController(CategoryService categoryService) {
-		this.categoryService = categoryService;
+	public ModuleController(ModuleHandlerService moduleHandlerService) {
+		this.moduleHandlerService = moduleHandlerService;
 	}
 
 	@ResponseBody
 	@PostMapping(path = "/module/{moduleId}", produces = "application/json")
 	public ObjectNode handleModuleRequest(@PathVariable int moduleId, HttpServletRequest req) {
-		ModuleHandler handler = categoryService.getModuleHandler(moduleId);
-		return handler.execute(req.getParameterMap());
+		return moduleHandlerService.executeModuleHandler(moduleId, req.getParameterMap());
 	}
 
 }

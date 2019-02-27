@@ -15,6 +15,8 @@ public interface ModuleHandler {
 	 * @return an {@link ObjectNode} that has the fields specified in the handler
 	 *         documentation
 	 */
-	public ObjectNode execute(Map<String, String[]> map);
+	public ObjectNode execute(Map<String, String> map);
+
+	public boolean areParametersValid(Map<String, String> map);
 
 }

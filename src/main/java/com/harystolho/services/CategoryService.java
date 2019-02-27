@@ -1,13 +1,13 @@
 package com.harystolho.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.harystolho.dao.CategoryDAO;
 import com.harystolho.data.Module;
 import com.harystolho.modules.ModuleHandler;
+import com.harystolho.modules.impl.twitter.TwitterProfileInfo;
 import com.harystolho.utils.Pair;
 
 @Service
@@ -32,9 +32,9 @@ public class CategoryService {
 		}
 
 	}
-	
+
 	public ModuleHandler getModuleHandler(int moduleId) {
-		return null;
+		return new TwitterProfileInfo();
 	}
 
 }
