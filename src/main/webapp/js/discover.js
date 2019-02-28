@@ -50,10 +50,24 @@ let Discover = (function ($) {
 
     functions.displayModuleDocumentation = function (modId) {
         requestModuleInformation(modId, (data) => {
+            // Display Name
             $("#module-info-name").text(data.name);
+
+            // Display Description
             $("#module-info-description").text(data.description);
+
+            // Display the url to use the module
             $("#module-info-id").text(`${window.location.host}/module/${data.id}`);
-            $("#module-json-example").text(JSON.stringify(eval("(" + data.jsonExample + ")"), null, "\t"));
+
+            // Display an example response
+            let formattedJSONExample = JSON.stringify(eval("(" + data.jsonExample + ")"), null, "\t");
+            if(formattedJSONExample !== "null"){
+                $("#module-info-example-container").show();
+                $("#module-json-example").text(formattedJSONExample);
+            } else {
+                $("#module-info-example-container").hide();
+            }
+
 
             DiscoverUI.displayCategoryDisplay(false);
         });
