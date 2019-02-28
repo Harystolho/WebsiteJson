@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public interface ModuleHandler {
@@ -18,5 +19,9 @@ public interface ModuleHandler {
 	public ObjectNode execute(Map<String, String> map);
 
 	public boolean areParametersValid(Map<String, String> map);
+
+	public default ObjectNode createDefaultObject() {
+		return new ObjectNode(new JsonNodeFactory(false));
+	}
 
 }

@@ -13,15 +13,16 @@ public class TwitterProfileInfo implements ModuleHandler {
 		if (!areParametersValid(map))
 			return new InvalidParameters();
 
-		return null;
+		ObjectNode response = createDefaultObject();
+
+		response.put("account", map.get("account"));
+
+		return response;
 	}
 
 	@Override
 	public boolean areParametersValid(Map<String, String> map) {
-		if (map.containsKey("account"))
-			return true;
-
-		return false;
+		return map.containsKey("account");
 	}
 
 }

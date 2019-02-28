@@ -60,6 +60,7 @@ let Discover = (function ($) {
             $("#module-info-id").text(`${window.location.protocol}//${window.location.host}/module/${data.id}`);
 
             // Display an example response
+            // The server returns a string, that's why it needs the eval()
             let formattedJSONExample = JSON.stringify(eval("(" + data.jsonExample + ")"), null, "\t");
             if (formattedJSONExample !== "null") {
                 $("#module-info-example-container").show();
@@ -67,13 +68,13 @@ let Discover = (function ($) {
             } else {
                 $("#module-info-example-container").hide();
             }
-
+            
             // Display Usage
             data.usageParams.length === 0 ? $("#module-info-usage-container").hide() : $("#module-info-usage-container").show();
 
             $(".module-table-row-container").children().remove();
 
-            data.usageParams.forEach((param)=>{
+            data.usageParams.forEach((param) => {
                 $('.module-table-row-container').append(createModuleUsageTableRow(param));
             });
 
@@ -114,7 +115,7 @@ let Discover = (function ($) {
      * @param info
      * @return {*|HTMLElement}
      */
-    function createModuleUsageTableRow (param) {
+    function createModuleUsageTableRow(param) {
         let el = `<div class="module-table-row">
                             <span class="module-table-row-left">${param.name}</span>
                             <div class="module-table-row-right">
