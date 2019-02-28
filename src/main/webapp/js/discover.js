@@ -31,10 +31,6 @@ let Discover = (function ($) {
         });
     }
 
-    functions.openModuleEndpoint = function (moduleId) {
-        window.open(`/module/${moduleId}`);
-    };
-
     /**
      * Creates HTMLElement from Module object
      * @param mod
@@ -113,11 +109,6 @@ let DiscoverUI = (function ($) {
     return functions;
 })(jQuery);
 
-function temp_makePostForElement(id) {
-    $.post(`/module/${id}`, {a: 2, b: 4}, (data) => {
-        $("#category-display").append("<span>" + JSON.stringify(data) + "</span><br>");
-    });
-}
 
 function temp_switchContainer() {
     let d = $("#category-display");
