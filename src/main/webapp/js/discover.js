@@ -57,7 +57,7 @@ let Discover = (function ($) {
             $("#module-info-description").text(data.description);
 
             // Display the url to use the module
-            $("#module-info-id").text(`${window.location.host}/module/${data.id}`);
+            $("#module-info-id").text(`${window.location.protocol}//${window.location.host}/module/${data.id}`);
 
             // Display an example response
             let formattedJSONExample = JSON.stringify(eval("(" + data.jsonExample + ")"), null, "\t");
@@ -67,7 +67,6 @@ let Discover = (function ($) {
             } else {
                 $("#module-info-example-container").hide();
             }
-
 
             DiscoverUI.displayCategoryDisplay(false);
         });
@@ -118,11 +117,16 @@ let DiscoverUI = (function ($) {
             $("#category-display").hide();
             $("#category-module-info").show();
         }
-    }
+    };
 
     return functions;
 })(jQuery);
 
+function temp_makePost() {
+    $.post("/module/4", {account: "Harystolho"}, (data)=>{
+       $("#category-module-info").append(`<div>${JSON.stringify(data)}</div>`);
+    });
+}
 
 function temp_switchContainer() {
     let d = $("#category-display");
@@ -137,3 +141,5 @@ function temp_switchContainer() {
     }
 
 }
+
+Discover.displayModuleDocumentation(4);

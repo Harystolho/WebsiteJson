@@ -18,6 +18,9 @@ public class TwitterProfileInfo implements ModuleHandler {
 
 	@Override
 	public boolean areParametersValid(Map<String, String> map) {
+		if (map.containsKey("account"))
+			return true;
+
 		return false;
 	}
 
