@@ -41,6 +41,7 @@ public class FakeCategoryDAO implements CategoryDAO {
 		twitter_stats.setName("Twitter Profile Stats");
 		twitter_stats.setDescription("Get information about a twitter profile.");
 		twitter_stats.setJsonExample("{a:1,b:2,c:{d:1,e:[1,2]}}");
+		twitter_stats.addModuleParameter(new Module.ModuleParameter("account", "<code>string</code><br>The twitter account username"));
 		twitter_stats.setId(4);
 		twitter_stats.setCategoryId(3);
 		modules.add(twitter_stats);

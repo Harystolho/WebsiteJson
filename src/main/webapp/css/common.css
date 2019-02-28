@@ -75,3 +75,28 @@
     left: var(--category-container-width);
     position: fixed;
 }
+
+.module-table{
+    background-color: #d1d1d1;
+    width: 750px;
+}
+
+.module-table-header{
+    padding: 5px;
+    background-color: #5c5c5c;
+}
+
+.module-table-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.module-table-row-left{
+    width: 30%;
+    align-self: center;
+    padding-left: 8px;
+}
+
+.module-table-row-right{
+    width: 70%;
+}

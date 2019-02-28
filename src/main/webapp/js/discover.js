@@ -61,12 +61,22 @@ let Discover = (function ($) {
 
             // Display an example response
             let formattedJSONExample = JSON.stringify(eval("(" + data.jsonExample + ")"), null, "\t");
-            if(formattedJSONExample !== "null"){
+            if (formattedJSONExample !== "null") {
                 $("#module-info-example-container").show();
                 $("#module-json-example").text(formattedJSONExample);
             } else {
                 $("#module-info-example-container").hide();
             }
+
+            // Display Usage
+            data.usageParams.length === 0 ? $("#module-info-usage-container").hide() : $("#module-info-usage-container").show();
+
+            $(".module-table-row-container").children().remove();
+
+            data.usageParams.forEach((param)=>{
+                $('.module-table-row-container').append(createModuleUsageTableRow(param));
+            });
+
 
             DiscoverUI.displayCategoryDisplay(false);
         });
@@ -97,6 +107,24 @@ let Discover = (function ($) {
         sel.addRange(range);
     };
 
+    /**
+     * Creates a row that can be appended to the parameters usage table in the module's info.
+     *
+     * @param param
+     * @param info
+     * @return {*|HTMLElement}
+     */
+    function createModuleUsageTableRow (param) {
+        let el = `<div class="module-table-row">
+                            <span class="module-table-row-left">${param.name}</span>
+                            <div class="module-table-row-right">
+                                ${param.info}
+                            </div>
+                        </div>`;
+
+        return $(el);
+    };
+
     return functions;
 })(jQuery);
 
@@ -123,8 +151,8 @@ let DiscoverUI = (function ($) {
 })(jQuery);
 
 function temp_makePost() {
-    $.post("/module/4", {account: "Harystolho"}, (data)=>{
-       $("#category-module-info").append(`<div>${JSON.stringify(data)}</div>`);
+    $.post("/module/4", {account: "Harystolho"}, (data) => {
+        $("#category-module-info").append(`<div>${JSON.stringify(data)}</div>`);
     });
 }
 
