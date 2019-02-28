@@ -4,7 +4,13 @@ public class Module {
 
 	private int id;
 	private String name;
+
+	// HTML
 	private String description;
+	
+	// JSON (an example of a JSON response from this module)
+	private String jsonExample;
+
 	private int category_id;
 
 	public int getId() {
@@ -31,11 +37,19 @@ public class Module {
 		this.description = description;
 	}
 
-	public int getCategory_id() {
+	public int getCategoryId() {
 		return category_id;
 	}
 
-	public void setCategory_id(int category_id) {
+	public void setCategoryId(int category_id) {
 		this.category_id = category_id;
+	}
+	
+	public String getJsonExample() {
+		return jsonExample;
+	}
+
+	public void setJsonExample(String jsonExemple) {
+		this.jsonExample = jsonExemple;
 	}
 }

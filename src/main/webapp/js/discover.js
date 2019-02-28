@@ -57,6 +57,7 @@ let Discover = (function ($) {
             $("#module-info-name").text(data.name);
             $("#module-info-description").text(data.description);
             $("#module-info-id").text(`${window.location.host}/module/${data.id}`);
+            $("#module-json-example").text(JSON.stringify(eval("(" + data.jsonExample + ")"), null, 4));
 
             DiscoverUI.displayCategoryDisplay(false);
         });
@@ -76,15 +77,15 @@ let Discover = (function ($) {
             }
         });
     }
-    
-    functions.selectModuleURL = function(){
-      let sel = window.getSelection();
 
-      let range = document.createRange();
-      range.selectNodeContents($("#module-info-id")[0]);
+    functions.selectModuleURL = function () {
+        let sel = window.getSelection();
 
-      sel.removeAllRanges();
-      sel.addRange(range);
+        let range = document.createRange();
+        range.selectNodeContents($("#module-info-id")[0]);
+
+        sel.removeAllRanges();
+        sel.addRange(range);
     };
 
     return functions;

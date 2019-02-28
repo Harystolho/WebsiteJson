@@ -20,28 +20,29 @@ public class FakeCategoryDAO implements CategoryDAO {
 		reddit_user_posts.setName("Reddit User Posts");
 		reddit_user_posts.setDescription("Some random information that goes here");
 		reddit_user_posts.setId(1);
-		reddit_user_posts.setCategory_id(1);
+		reddit_user_posts.setCategoryId(1);
 		modules.add(reddit_user_posts);
 
 		Module productHunt_posts = new Module();
 		productHunt_posts.setName("Product Hunt posts");
 		productHunt_posts.setDescription("Some random information that goes here");
 		productHunt_posts.setId(2);
-		productHunt_posts.setCategory_id(2);
+		productHunt_posts.setCategoryId(2);
 		modules.add(productHunt_posts);
 
 		Module productHunt_comments = new Module();
 		productHunt_comments.setName("Product Hunt comments");
 		productHunt_comments.setDescription("Some random information that goes here");
 		productHunt_comments.setId(3);
-		productHunt_comments.setCategory_id(2);
+		productHunt_comments.setCategoryId(2);
 		modules.add(productHunt_comments);
 
 		Module twitter_stats = new Module();
 		twitter_stats.setName("Twitter Profile Stats");
 		twitter_stats.setDescription("Get information about a twitter profile.");
+		twitter_stats.setJsonExample("{a:1,b:2,c:{d:1,e:[1,2]}}");
 		twitter_stats.setId(4);
-		twitter_stats.setCategory_id(3);
+		twitter_stats.setCategoryId(3);
 		modules.add(twitter_stats);
 
 	}
@@ -50,7 +51,7 @@ public class FakeCategoryDAO implements CategoryDAO {
 		List<Module> mdls = new ArrayList<>();
 
 		modules.forEach((mod) -> {
-			if (mod.getCategory_id() == category_id)
+			if (mod.getCategoryId() == category_id)
 				mdls.add(mod);
 		});
 
