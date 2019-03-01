@@ -35,13 +35,6 @@ public class FakeCategoryDAO implements CategoryDAO {
 		productHunt_today_products.setCategoryId(2);
 		modules.add(productHunt_today_products);
 
-		Module productHunt_comments = new Module();
-		productHunt_comments.setName("Product Hunt comments");
-		productHunt_comments.setDescription("Some random information that goes here");
-		productHunt_comments.setId(3);
-		productHunt_comments.setCategoryId(2);
-		modules.add(productHunt_comments);
-
 		Module twitter_stats = new Module();
 		twitter_stats.setName("Twitter Profile Stats");
 		twitter_stats.setDescription("Get information about a twitter profile.");

@@ -55,12 +55,15 @@ public class ProductHuntTodayProducts implements ModuleHandler {
 		products.forEach((prod) -> {
 			ObjectNode prodJson = createDefaultObject();
 
-			prodJson.put("title", prod.getElementsByClass("font_9d927").get(0).text());
-			prodJson.put("description", prod.getElementsByClass("font_9d927").get(1).text());
-			prodJson.put("votes", prod.getElementsByClass("font_9d927").get(2).child(1).text());
-			prodJson.put("link",
-					"http://producthunt.com" + prod.getElementsByClass("font_9d927").get(5).parent().attr("href"));
-			prodJson.put("category", prod.getElementsByClass("font_9d927").get(6).text());
+			try {
+				prodJson.put("title", prod.getElementsByClass("font_9d927").get(0).text());
+				prodJson.put("description", prod.getElementsByClass("font_9d927").get(1).text());
+				prodJson.put("votes", prod.getElementsByClass("font_9d927").get(2).child(1).text());
+				prodJson.put("link",
+						"http://producthunt.com" + prod.getElementsByClass("font_9d927").get(5).parent().attr("href"));
+				prodJson.put("category", prod.getElementsByClass("font_9d927").get(6).text());
+			} catch (Exception e) {
+			}
 
 			productsJson.add(prodJson);
 		});
@@ -69,10 +72,15 @@ public class ProductHuntTodayProducts implements ModuleHandler {
 	}
 
 	private Document getProductsPage(String mode) {
+		String additionalURL = "";
+
+		if (mode.equals("newest"))
+			additionalURL = "newest";
+
 		try {
-			return Jsoup.parse(new URL("https://www.producthunt.com/"), 3000);
+			return Jsoup.parse(new URL("https://www.producthunt.com/" + additionalURL), 3000);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Timeout error when connection to producthunt");
 		}
 		return null;
 	}
