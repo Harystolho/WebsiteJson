@@ -20,6 +20,7 @@
     height: 100vh;
     color: white;
     font-size: larger;
+    padding: 8px;
 }
 
 #category-display, #category-module-info {
@@ -31,7 +32,7 @@
     padding: 30px;
 }
 
-#module-id-container{
+#module-id-container {
     margin: 15px;
     background-color: #0095da;
     border-radius: 5px;
@@ -44,19 +45,21 @@
     cursor: pointer;
 }
 
-#module-json-example{
+#module-json-example {
     background-color: rgb(30, 30, 30);
     color: white;
     padding: 12px;
     width: max-content;
+    border-radius: 5px;
 }
 
 .category-module {
-    background-color: #e4e4e4;
+    background-color: #fff;
     padding: 5px;
     border-radius: 4px;
     width: 340px;
     margin-bottom: 9px;
+    cursor: pointer;
 }
 
 .module-description {
@@ -75,29 +78,57 @@
     width: calc(100% - var(--category-container-width));
     left: var(--category-container-width);
     position: fixed;
+    background-color: #ededed;
 }
 
-.module-table{
+.module-table {
     background-color: #d1d1d1;
     width: 750px;
 }
 
-.module-table-header{
+.module-table-header {
     padding: 5px;
     background-color: #5c5c5c;
 }
 
-.module-table-row{
+.module-table-row {
     display: flex;
     flex-direction: row;
 }
 
-.module-table-row-left{
+.module-table-row-left {
     width: 30%;
     align-self: center;
     padding-left: 8px;
 }
 
-.module-table-row-right{
+.module-table-row-right {
     width: 70%;
+}
+
+#module-info-name{
+    border-bottom: solid 2px #005983;
+    width: max-content;
+}
+
+.category-name {
+    font-family: Quicksand, serif;
+    font-variant: small-caps;
+    font-size: larger;
+    border-bottom: solid 2px transparent;
+}
+
+.category-name:hover {
+    border-bottom: solid 2px #0095da;
+    cursor: pointer;
+
+}
+
+#module-info-usage-container, #module-info-example-container {
+    padding: 8px;
+    border-radius: 9px;
+    width: max-content;
+    box-shadow: 0 0 5px #a8a8a8b3;
+    margin-bottom: 20px;
+    background-color: white;
 }

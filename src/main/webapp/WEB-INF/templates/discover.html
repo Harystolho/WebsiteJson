@@ -14,10 +14,10 @@
 <div th:replace="components/header :: header"></div>
 <div id="root">
     <div id="category-container">
-        <div onclick="Discover.displayCategory(CATEGORY_IDS.PRODUCT_HUNT)">ProductHunt</div>
-        <div onclick="Discover.displayCategory(CATEGORY_IDS.REDDIT)">Reddit</div>
-        <div onclick="Discover.displayCategory(CATEGORY_IDS.TWITTER)">Twitter</div>
-        <button onclick="temp_switchContainer()">switch</button>
+        <div class="category-name" onclick="Discover.displayCategory(CATEGORY_IDS.PRODUCT_HUNT)">ProductHunt</div>
+        <div class="category-name" onclick="Discover.displayCategory(CATEGORY_IDS.REDDIT)">Reddit</div>
+        <div class="category-name" onclick="Discover.displayCategory(CATEGORY_IDS.TWITTER)">Twitter</div>
+        <!--<button onclick="temp_switchContainer()">switch</button>-->
     </div>
     <div id="right-container">
         <div id="category-display"></div>
