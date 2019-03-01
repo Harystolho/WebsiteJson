@@ -30,7 +30,7 @@ public class StaticPagesController {
 			conn.connect();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
+			
 			for (String line; (line = br.readLine()) != null;) {
 				res.getWriter().append(line);
 			}
