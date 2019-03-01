@@ -68,7 +68,7 @@ let Discover = (function ($) {
             } else {
                 $("#module-info-example-container").hide();
             }
-            
+
             // Display Usage
             data.usageParams.length === 0 ? $("#module-info-usage-container").hide() : $("#module-info-usage-container").show();
 
@@ -84,7 +84,7 @@ let Discover = (function ($) {
     };
 
     /**
-     * Returns information about the module such as the module name, the descrption, the url and more information about it.
+     * Returns information about the module such as the module name, the description, the url and more information about it.
      * @param modId
      * @param cb
      */
