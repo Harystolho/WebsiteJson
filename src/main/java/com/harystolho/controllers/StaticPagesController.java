@@ -23,21 +23,6 @@ public class StaticPagesController {
 
 	@GetMapping("/temp")
 	public void temporaryMethod(HttpServletResponse res) {
-		try {
-			URL url = new URL("https://twitter.com/harystolho/");
-			URLConnection conn = url.openConnection();
-
-			conn.connect();
-
-			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			
-			for (String line; (line = br.readLine()) != null;) {
-				res.getWriter().append(line);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 }
