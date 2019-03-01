@@ -152,7 +152,7 @@ let DiscoverUI = (function ($) {
 })(jQuery);
 
 function temp_makePost() {
-    $.post("/module/4", {account: "martinfowler"}, (data) => {
+    $.post("/module/2", {mode: "popular"}, (data) => {
         $("#category-module-info").append(`<div>${JSON.stringify(data)}</div>`);
     });
 }
@@ -171,4 +171,4 @@ function temp_switchContainer() {
 
 }
 
-Discover.displayModuleDocumentation(4);
+Discover.displayModuleDocumentation(2);

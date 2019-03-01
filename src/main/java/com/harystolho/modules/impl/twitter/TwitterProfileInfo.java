@@ -73,7 +73,7 @@ public class TwitterProfileInfo implements ModuleHandler {
 
 	private Document getProfilePage(String account) {
 		try {
-			return Jsoup.parse(new URL("http://twitter.com/" + account), 1000);
+			return Jsoup.parse(new URL("http://twitter.com/" + account), 2000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -79,6 +79,7 @@
     left: var(--category-container-width);
     position: fixed;
     background-color: #ededed;
+    overflow-y: auto;
 }
 
 .module-table {
